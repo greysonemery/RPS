@@ -9,7 +9,7 @@ var playerscore = 0;
 
 var computerScore = 0;
 
-while ( computerScore < 3 && playerscore < 3)
+while(computerScore < 3 && playerscore < 3)
 {
 let playerSelection = prompt('Rock,Paper, or Scissors')
 
@@ -70,6 +70,7 @@ function playRound(result, ComputerSelection) {
     else if 
     (playerscore === computerScore) {console.log("tie");}
     else if
-    (computerScore === 3 ){console.log("Better luck next time");}}
+    (computerScore === 3 ){console.log("Better luck next time");}
+}
   
    game();
