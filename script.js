@@ -1,33 +1,68 @@
+  
+    
+function restart(){
+    let playAgain= prompt("Play again? Yes or No");
+    let mayBe = playAgain.toUpperCase();
+    if(
+        mayBe === "YES"
+        ){
+        game();
+        }
+    else if(
+        mayBe === "NO"
+        ){ 
+        alert ("Okay");
+        }
+}
+
+ 
 
 
+    
+    function game(){
+        
+    var roundCounter = 0;
 
-function game()
-{
-var roundCounter = 0;
+    var playerscore = 0;
 
-var playerscore = 0;
+    var computerScore = 0;
+    
+    const userChoiceDisplay = document.getElementById('playerChoice')
+    const computerChoiceDisplay = document.getElementById('computerChoice')
+    const possibleChoices = document.querySelectorAll('button')
+    
+    function computerPlay(){
 
-var computerScore = 0;
+        var array = ["Rock", "Paper", "Scissors"];
 
-while(computerScore < 3 && playerscore < 3)
-{
-let playerSelection = prompt('Rock,Paper, or Scissors')
+        const randomIndex = Math.floor(Math.random() * array.length);
 
-let result = playerSelection.toUpperCase();
+        const item= array[randomIndex];
 
-var ComputerSelection = computerPlay();
+        item.toString();
 
-function computerPlay(){
-
-var array= ["Rock", "Paper", "Scissors"];
-
-const randomIndex = Math.floor(Math.random() * array.length);
-
-const item= array[randomIndex];
-
-return item;
+        computerChoiceDisplay.innerHTML = item;        
 
 }
+
+    possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click',(e) =>
+    {   userChoice = e.target.id
+        userChoiceDisplay.innerHTML = userChoice
+        computerPlay();
+        playRound();
+    }))
+   
+     
+ 
+    while(computerScore < 1 && playerscore < 1)
+{       
+
+        let result = userChoiceDisplay.toString().toUpperCase();
+
+        var ComputerSelection = item;
+        
+     
+   
 
 function playRound(result, ComputerSelection) {
     if
@@ -57,20 +92,15 @@ function playRound(result, ComputerSelection) {
         }else if
         (result === "PAPER" && ComputerSelection==="Rock"){
         (console.log("Win")); playerscore ++; roundCounter ++;
-        }else 
-        (alert("Error"))
+        }
     }
-    playRound(result,ComputerSelection);
-    console.log("Round " + roundCounter);
-    console.log(playerscore);
-    console.log(computerScore);
 }
     if
-    (playerscore === 3 ) {console.log("you win");}
+    (playerscore === 3 ) {console.log("you win"); restart();} 
     else if 
-    (playerscore === computerScore) {console.log("tie");}
+    (playerscore === computerScore) {console.log("tie"); restart();;}
     else if
-    (computerScore === 3 ){console.log("Better luck next time");}
-}
-  
-   game();
+    (computerScore === 3 ){console.log("Better luck next time"); restart();;}
+    
+    }
+    game();
