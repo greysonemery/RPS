@@ -1,0 +1,14 @@
+body {
+  display: flexbox;
+  justify-content: center;
+  align-content: center;
+}
+.button {
+  color: red;
+}
+#buttons {
+  display: flexbox;
+  justify-content: center;
+  align-content: center;
+  padding: 200px;
+}
